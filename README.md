@@ -17,8 +17,8 @@ $ = not launched yet
 | 3 $    | GSM_012_Bot    |   GSM      |0 1 2   | YES               | NO        |                  |           |         |                                 |            |
 | 4 $    | GSM_12_BotDec  |   GSM      |1 2     | YES               | YES       |                  |           |         |                                 |            | 
 | 5      | GSM_012_Dec    |   GSM      |0 1 2   | NO                | YES       |                  |           |         |                                 |  YES       |
-| 6      | GSF_012_Dec    |   GSF      |0 1 2   | NO                | YES       |      75.80 %     |           |         |80.21, 77.44, 76.53, 66.78, 78.02| No L yes A |
-| 7      | GSM_12_Bot     |   GSM      |1 2     | YES               | NO        |                  |           |         |                                 | No L yes A |
-| 8      | GSF_12_Bot     |   GSF      |1 2     | YES               | NO        |                  |           |         |                                 | No L yes A |
+| 6  V   | GSF_012_Dec    |   GSF      |0 1 2   | NO                | YES       |      75.80 %     |           |         |80.21, 77.44, 76.53, 66.78, 78.02| NO         |
+| 7 ...  | GSM_12_Bot     |   GSM      |1 2     | YES               | NO        |                  |           |         |                                 | NO         |
+| 8 ...  | GSF_12_Bot     |   GSF      |1 2     | YES               | NO        |                  |           |         |                                 | NO         |
 | 9      | GSF_012_Bot_Dec|   GSF      |0 1 2   | YES               | YES       |                  |           |         |                                 | YES        |
 | 10     | GSF_12_Dec     |   GSF      |1 2     | NO                | YES       |                  |           |         |                                 | NO         |
