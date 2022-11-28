@@ -15,8 +15,8 @@ $ = not launched yet
 | 1      | GSM_01         |   GSM      |0 1     | NO                | NO        |  73.89 %         |           |   10 M  |79.28, 72.92 ,74.51 ,65.67 ,77.05| YES        |
 | 1 bis  | GSM_01viewsInCh|   GSM      |0 1     | NO                | NO        |                  |           |   10 M  |                                 | YES        |
 | 2 $    | GSM_012        |   GSM      |0 1 2   | NO                | NO        |                  |           |  10 M   |                                 |            |
-| 3 $    | GSM_012_Bot    |   GSM      |0 1 2   | YES               | NO        |                  |           |  10 M   |                                 |            |
-| 4 $    | GSM_12_BotDec  |   GSM      |1 2     | YES               | YES       |                  |           |   10 M  |                                 |            | 
+| 3 $    | GSM_012_Bot    |   GSM      |0 1 2   | YES               | NO        |                  |           |  10 M   |                                 |  NO        |
+| 4      | GSM_12_BotDec  |   GSM      |1 2     | YES               | YES       |                  |           |   10 M  |                                 |  NO        | 
 | 5      | GSM_012_Dec    |   GSM      |0 1 2   | NO                | YES       |    ...           |           |   10 M  |80.00, 75.19, 75.25, 65.86       |  YES       |
 | 6      | GSF_012_Dec    |   GSF      |0 1 2   | NO                | YES       |      75.80 %     |           |   11 M  |80.21, 77.44, 76.53, 66.78, 78.02| no sicura  |
 | 7 ...  | GSM_12_Bot     |   GSM      |1 2     | YES               | NO        |       ...        |           |  10 M   |                                 | NO         |
