@@ -23,4 +23,4 @@ $ = not launched yet
 | 8 ...  | GSF_12_Bot     |   GSF      |1 2     | YES               | NO        |       ...        |           |   11 M  |                                 | NO         |
 | 9      | GSF_012_Bot_Dec|   GSF      |0 1 2   | YES               | YES       |   77.24 %        |           |  11 M   |83.08, 78.63, 77.61, 67.48, 79.39| YES        |
 | 9 bis  | GSF_012_Bot_Dec|   GSF      |0 1 2   | YES               | YES       |                  |           |  11 M   |                                 | NO         |
-| 10     | GSF_12_Dec     |   GSF      |1 2     | NO                | YES       |    74.81 %       |           |  11 M   |81.59, 75.20, 74.95, 65.09, 77.20| NO         |
+| 10     | GSF_12_Dec     |   GSF      |1 2     | NO                | YES       |    74.81 %       |           |  11 M   |81.59, 75.20, 74.95, 65.09, 77.20| NO         | | 11 $   | GSF_12_BotDec  |   GSF      |1 2     | YES               | YES       |                  |           |  10 M   |                                 |  YES       | 
