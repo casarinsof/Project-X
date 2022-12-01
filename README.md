@@ -10,11 +10,11 @@ $ = not launched yet
 |:----------- |:-----------|:-----------------|:---------------------------------------- |:---------|:--------|
 | 3D          |   NO       |    74.4 %        | 80.9 %, 75.1 %, 76.1 %, 65.30 %, 74.40 % |          |   16 M  |  
 
-| Exp n. | *Exp Name*     | GSM or GSF | Layer  | GSM in bottleneck | GSM in dec| avg_val accuracy | Test accu | nParams | Acc per Folder                  | Background |
+| Exp n. | *Exp Name*     | GSM or GSF | Layer  | GSM in bottleneck | GSM in dec| ```diff - text in red avg_val accuracy``` | Test accu | nParams | Acc per Folder                  | Background |
 |:-------|:---------------|:-----------|:-------|:------------------|:----------|:-----------------|:----------|:--------|:--------------------------------|:-----------|
 | #1     | GSM_01         |   GSM      |0 1     | NO                | NO        |  73.89 %         |           |   10 M  |79.28, 72.92 ,74.51 ,65.67 ,77.05| YES        |
 | 1 bis  | GSM_01viewsInCh|   GSM      |0 1     | NO                | NO        |   74.83 %        |           |   10 M  |            non li ho riportati  | YES        |
-| 2 $    | GSM_012        |   GSM      |0 1 2   | NO                | NO        |`rgb(9, 105, 218)`|           |  10 M   |                                 |            |
+| 2 $    | GSM_012        |   GSM      |0 1 2   | NO                | NO        |`rgb(255, 105, 218)`|           |  10 M   |                                 |            |
 | 3 ...  | GSM_012_Bot    |   GSM      |0 1 2   | YES               | NO        |                  |           |  10 M   |                                 |            |
 | 4 ..   | GSM_12_BotDec  |   GSM      |1 2     | YES               | YES       |                  |           |   10 M  |79.06, 72.75, 73.55, 62.54,      | **NO**     | 
 | #5     | GSM_012_Dec    |   GSM      |0 1 2   | NO                | YES       |   74.51 %        |           |   10 M  |80.00, 75.19, 75.25, 65.86, 76.26|  YES       |
