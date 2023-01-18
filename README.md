@@ -1,3 +1,4 @@
+# EXPERIMETS(Ify):
 # Project-X
 Anomaly Detection in collaboration
 
@@ -6,23 +7,14 @@ Roi size = 96 for all experiments
 $ = not launched yet
 
 
-| #Baseline   | GSM or GSF | avg_val accuracy | Acc per folder                           |Test accu | nParams |
-|:----------- |:-----------|:-----------------|:---------------------------------------- |:---------|:--------|
-| 3D          |   NO       |    74.4 %        | 80.9 %, 75.1 %, 76.1 %, 65.30 %, 74.40 % |          |   16 M  |  
-
-| Exp n. | *Exp Name*     | GSM or GSF | Layer  | GSM in bottleneck | GSM in dec|```avg_val accuracy```| Test accu | nParams | Acc per Folder                  | Background |
-|:-------|:---------------|:-----------|:-------|:------------------|:----------|:-----------------|:----------|:--------|:--------------------------------|:-----------|
-| #1     | GSM_01         |   GSM      |0 1     | NO                | NO        |  ```73.89 %```   |           |   10 M  |79.28, 72.92 ,74.51 ,65.67 ,77.05| YES        |
-| 1 bis  | GSM_01viewsInCh|   GSM      |0 1     | NO                | NO        | ```74.83 % ```   |           |   10 M  |            non li ho riportati  | YES        |
-| 2 $    | GSM_012        |   GSM      |0 1 2   | NO                | NO        |                  |           |  10 M   |                                 |            |
-| 3      | GSM_012_Bot    |   GSM      |0 1 2   | YES               | NO        |```72.51```       |           |  10 M   |      non li ho riportati        | **NO**     |
-| 4      | GSM_12_BotDec  |   GSM      |1 2     | YES               | YES       |   ```72.47```    |           |   10 M  |79.06, 72.75, 73.55, 62.54, 74.36| **NO**     | 
-| #5     | GSM_012_Dec    |   GSM      |0 1 2   | NO                | YES       |``` 74.51 %  ```  |           |   10 M  |80.00, 75.19, 75.25, 65.86, 76.26|  YES       |
-| #6     | GSF_012_Dec    |   GSF      |0 1 2   | NO                | YES       | ``` 75.80 %```   |           |   11 M  |80.21, 77.44, 76.53, 66.78, 78.02| no sicura  |
-| 7      | GSM_12_Bot     |   GSM      |1 2     | YES               | NO        | ```72.55 %```    |           |  10 M   |78.91, 72.45, 72.71, 63.05       | **NO**     |
-| 8      | GSF_12_Bot     |   GSF      |1 2     | YES               | NO        |```72.78 % ```    |           |   11 M  |78.91, 72.24, 74.91, 62.79       | **NO**     |
-| #9     | GSF_012_Bot_Dec|   GSF      |0 1 2   | YES               | YES       |```77.24 % ```    |           |  11 M   |83.08, 78.63, 77.61, 67.48, 79.39| YES        |
-|9bis    | GSF_012_Bot_Dec|   GSF      |0 1 2   | YES               | YES       | ``` 75.35 % ```  |           |  11 M   |81.75, 75.95,                    | **NO**     |
-|9tris $ |Come9bisButVinCh|   GSF      |0 1 2   | YES               | YES       | ```74.92 % ```   |           |         |   non li ho riportati           | YES        |
-| # 10   | GSF_12_Dec     |   GSF      |1 2     | NO                | YES       | ```74.81 %```    |           |  11 M   |81.59, 75.20, 74.95, 65.09, 77.20| **NO**     |
-| 11 $   | GSF_12_BotDec  |   GSF      |1 2     | YES               | YES       |                  |           |  10 M   |                                 |  YES       |
+| Exp n.         | *Exp Name*       | GSM or GSF | Layer | GSM in bottleneck | GSM in dec | ```avg_val accuracy``` | loss | loss in che layers    | Acc per Folder |
+|:---------------|:-----------------|:-----------|:------|:------------------|:-----------|:-----------------------|:-----|:----------------------|:---------------|
+| 82313  lr1e-4  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```  ```               | NO   |                       |                | 
+| 82436  lr1e-4  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```  ```               | SI   | 0 e 1, 0.5_0.2_0.1    |                |
+| 83319  lr1e-4  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```   ```              | SI   | 0 e 1, 1.0, 0.4, 1.0  |                | 
+| 82476  lr1e-4  | GSM_01           | GSM        | 0 1   | NO                | YES        | ```   ```              | YES  | 0 e 1, 1.0, 0.4, 1.0  |                |
+| $82490  lr1e-4 | GSM_01           | GSM        | 0 1   | NO                | NO         | ```   ```              | NO   |                       |                |
+| $82495 lr1e-3  | GSM_01           | GSM        | 0 1   | NO                | NO         | ```   ```              | NO   |                       |                |
+| $82498 lr1e-3  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```   ```              | NO   |                       |                | 
+| $82499  lr1e-3 | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```   ```              | YES  | 0 e 1, 0.7, 0.05, 0.2 |                |
+| $82544  lr1e-3 | GSM_01           | GSM        | 0 1   | NO                | NO         | ```   ```              | YES  | 0 e 1, 0.7, 0.3       |                |
