@@ -1,4 +1,4 @@
-# EXPERIMETS(Ify):
+# EXPERIMETS sto scrivendo anche quelli che ho lanciato io qua (non cancellare pls):
 # Project-X
 Anomaly Detection in collaboration
 
