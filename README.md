@@ -28,12 +28,12 @@ $ = not launched yet
 | gsf01               | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.0)    | -                | 0.848       |                      |
 | gsf01_l2            | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.846       | no reshape on gamma  |
 | gsm01_l2            | 0 1    | yes     | no         | 6.49M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.839       | no reshape on gamma  |
-| gsf01_l1            | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L1)        | *0.850*     | no reshape on gamma  |
+| gsf01_l1            | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L1)        | **0.850**   | no reshape on gamma  |
 | gsf01_l1_beta       | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.0)   | (0 1, L1)        | ?           |                      |
 | gsf01_l1_gamma      | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25*)  | (0 1, L1)        | ?           | no reshape on gamma  |
 | gsf01_l1_testGamma  | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25)   | (0 1, L1)        | ?           |                      |
 | gsf01_l1_beta_gamma | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.25*) |                  | ?           | no reshape on gamma  |
-| gsf_all             | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | *0.851*     |                      |
+| gsf_all             | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | **0.851**   |                      |
 | gsf_all_NOreshape   | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
 | vfn                 | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
 | vfn_NOreshape       | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
