@@ -22,26 +22,31 @@ $ = not launched yet
 
 # Cynthia trainings:
 
-| *Model Name*        | layers | decoder | bottleneck | nParams | (alpha,beta,gamma) | (loss pos, type) | avg val acc | comments             |
-|---------------------|--------|---------|:-----------|---------|--------------------|------------------|-------------|----------------------|
-| gsm01               | 0 1    | yes     | no         | 6.49M   | (1.0, 0.0, 0.0)    | -                | 0.846       |                      |
-| gsf01               | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.0)    | -                | 0.848       |                      |
-| gsf01_l2            | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.846       | no reshape on gamma  |
-| gsm01_l2            | 0 1    | yes     | no         | 6.49M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.839       | no reshape on gamma  |
-| gsf01_l1            | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L1)        | **0.850**   | no reshape on gamma  |
-| gsf01_l1_beta       | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.0)   | (0 1, L1)        | ?           |                      |
-| gsf01_l1_gamma      | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25*)  | (0 1, L1)        | ?           | no reshape on gamma  |
-| gsf01_l1_testGamma  | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25)   | (0 1, L1)        | ?           |                      |
-| gsf01_l1_beta_gamma | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.25*) |                  | ?           | no reshape on gamma  |
-| gsf_all             | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | **0.851**   |                      |
-| gsf_all_NOreshape   | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
-| vfn                 | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
-| vfn_NOreshape       | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
-| gsf_all_kfold       | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | $$$         |                      |
-| gsf_all_l1          | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 1.0, 1.0)    | (0 1, L1)        |             |                      |
-| basicDynUNet        | -      | -       | -          | 16.54M  | (1.0, -, -)        |                  | 0.843       |                      |
-| resDynUNet          | -      | -       | -          |         | (1.0, -, -)        |                  | 0.849       |                      |
-| 2D resDynUNet NB    | -      | -       | -          | 7.9M    | (1.0, -, -)        | -                | 0.517       |                      |
+| *Model Name*         | layers | decoder | bottleneck | nParams | (alpha,beta,gamma) | (loss pos, type) | avg val acc | comments            |
+|----------------------|--------|---------|:-----------|---------|--------------------|------------------|-------------|---------------------|
+| gsm01                | 0 1    | yes     | no         | 6.49M   | (1.0, 0.0, 0.0)    | -                | 0.846       |                     |
+| gsf01                | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.0)    | -                | 0.848       |                     |
+| gsf01_l2             | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.846       | no reshape on gamma |
+| gsm01_l2             | 0 1    | yes     | no         | 6.49M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.839       | no reshape on gamma |
+| gsf01_l1             | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L1)        | *0.850*     | no reshape on gamma |
+|                      |        |         |            |         |                    |                  |             |                     |
+| gsf01_l1_beta        | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.0)   | (0 1, L1)        | $$$         |                     |
+| gsf01_l1_gamma1      | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25)   | (0 1, L1)        | $$$         | no reshape on gamma |
+| gsf01_l1_beta_gamma1 | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.25)  |                  | $$$         |                     |
+| gsf01_l1_gamma2      | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25)   | (0 1, L1)        |             | errore sul reshape  |
+|                      |        |         |            |         |                    |                  |             |                     |
+| gsf_all              | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | **0.851**   |                     |
+| gsf_all_NOreshape    | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | 0.836       |                     |
+| vfn                  | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | 0.852       |                     |
+| vfn_NOreshape        | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | 0.855       |                     |
+| gsf_all_l1           | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 1.0, 1.0)    | (0 1, L1)        |             |                     |
+|                      |        |         |            |         |                    |                  |             |                     |
+| gsf_all_kfold        | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | $$$         | 0.81,               |
+|                      |        |         |            |         |                    |                  |             |                     |
+|                      |        |         |            |         |                    |                  |             |                     |
+| basicDynUNet         | -      | -       | -          | 16.54M  | (1.0, -, -)        |                  | 0.843       |                     |
+| resDynUNet           | -      | -       | -          |         | (1.0, -, -)        |                  | 0.849       |                     |
+| 2D resDynUNet NB     | -      | -       | -          | 7.9M    | (1.0, -, -)        | -                | 0.517       |                     |
 
 NB: Ho lasciaro che le features si auto-configurassero con MONAI
 
