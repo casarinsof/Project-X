@@ -1,0 +1,11 @@
+torch
+torchvision
+numpy
+scipy
+pillow
+pyyaml
+requests
+tensorboardX
+scikit-learn
+pandas
+matplotlib

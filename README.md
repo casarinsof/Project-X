@@ -1,52 +1,77 @@
-# EXPERIMETS sto scrivendo anche quelli che ho lanciato io qua (non cancellare pls):
-# Project-X
-Anomaly Detection in collaboration
+# Project-X: Anomaly Detection (in collaboration)
 
-Roi size = 96 for all experiments
+Experiments on video-based anomaly detection built on top of
+[Gate-Shift Networks for Video Action Recognition](http://openaccess.thecvf.com/content_CVPR_2020/papers/Sudhakaran_Gate-Shift_Networks_for_Video_Action_Recognition_CVPR_2020_paper.pdf)
+(GSM, Sudhakaran, Escalera, Lanz, CVPR 2020). The code is derived from the
+authors' GSM codebase (BSD 2-Clause, Copyright (c) 2019 FBK; see `LICENSE`) and
+adds a Kanji-based dataset pipeline (frame extraction, benchmarks) used in our
+experiments. Run logs and result tables are kept in
+[`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md).
 
-$ = not launched yet
+## Repository structure
 
+```
+gsm/                      Python package (model, data, training / testing)
+  main.py                   training entry point
+  test_models.py            evaluation entry point
+  models.py, gsm.py         video model and Gate-Shift Module
+  dataset.py, datasets_video.py, transforms.py, opts.py, CosineAnnealingLR.py
+  ops/                      consensus module and basic ops
+  model_zoo/                BNInception / InceptionV3 (+GSM) definitions, yaml specs
+scripts/                  shell wrappers and standalone scripts
+  train_rgb.sh, test_rgb.sh
+  eval/                     evaluation shell scripts
+  slurm/                    SLURM jobs (cluster-specific paths)
+  data_scripts/             frame extraction / list-file generation
+  average_scores.py, download_models.py, tds_benchmarks.py
+data/                     Kuzushiji-Kanji .npz files (kkanji-*)
+docs/                     experiment log, original GSM README
+third_party/
+  tensorflow_models/        vendored copy of tensorflow/models (not used by the code)
+```
 
-| Exp n.         | *Exp Name*       | GSM or GSF | Layer | GSM in bottleneck | GSM in dec | ```avg_val accuracy``` | loss | loss in che layers    | Acc per Folder |
-|:---------------|:-----------------|:-----------|:------|:------------------|:-----------|:-----------------------|:-----|:----------------------|:---------------|
-| 82313  lr1e-4  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```81.16 %```          | NO   |                       |83.66, 84.10, 78.18, 76.78, 83.09 | 
-| 82436  lr1e-4  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```80.18 %```          | SI   | 0 e 1, 0.5_0.2_0.1    |83.38, 82.00,  77.81, 74.98, 82.73|
-| 83319  lr1e-4  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```80.77 %```          | SI   | 0 e 1, 1.0, 0.4, 1.0  |83.12, 83.25, 77.83, 76.58, 83.07 | 
-| 82476  lr1e-4  | GSM_01           | GSM        | 0 1   | NO                | YES        | ```80.38 %```          | YES  | 0 e 1, 1.0, 0.4, 1.0  |84.01, 81.72, 78.12, 75.55, 82.50 |
-| $82490  lr1e-4 | GSM_01           | GSM        | 0 1   | NO                | NO         | ```80.72 %```          | NO   |                       |84.04, 82.21, 77.15, 76.82, 83.38 |
-| $82495 lr1e-3  | GSM_01           | GSM        | 0 1   | NO                | NO         | ```   ```              | NO   |                       |83.84, 83.21, 77.78, 77.27,       |
-| $82498 lr1e-3  | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```   ```              | NO   |                       |81.03, 82.05, 77.14, 75.29        | 
-| $82499  lr1e-3 | GSF_012_Bot_Dec  | GSF        | 0 1 2 | YES               | YES        | ```   ```              | YES  | 0 e 1, 0.7, 0.05, 0.2 |                |
-| $82544  lr1e-3 | GSM_01           | GSM        | 0 1   | NO                | NO         | ```   ```              | YES  | 0 e 1, 0.7, 0.3       |  errore              |
+## Installation
 
+The original GSM code targets Python 3.5 and PyTorch 1.2.
 
-# Cynthia trainings:
+```
+pip install -r requirements.txt
+```
 
-| *Model Name*         | layers | decoder | bottleneck | nParams | (alpha,beta,gamma) | (loss pos, type) | avg val acc | comments            |
-|----------------------|--------|---------|:-----------|---------|--------------------|------------------|-------------|---------------------|
-| gsm01                | 0 1    | yes     | no         | 6.49M   | (1.0, 0.0, 0.0)    | -                | 0.846       |                     |
-| gsf01                | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.0)    | -                | 0.848       |                     |
-| gsf01_l2             | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.846       | no reshape on gamma |
-| gsm01_l2             | 0 1    | yes     | no         | 6.49M   | (1.0, 1.0, 1.0*)   | (0 1, L2)        | 0.839       | no reshape on gamma |
-| gsf01_l1             | 0 1    | yes     | no         | 6.48M   | (1.0, 1.0, 1.0*)   | (0 1, L1)        | *0.850*     | no reshape on gamma |
-|                      |        |         |            |         |                    |                  |             |                     |
-| gsf01_l1_beta        | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.0)   | (0 1, L1)        | $$$         |                     |
-| gsf01_l1_gamma1      | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25)   | (0 1, L1)        | $$$         | no reshape on gamma |
-| gsf01_l1_beta_gamma1 | 0 1    | yes     | no         | 6.48M   | (1.0, 0.25, 0.25)  |                  | $$$         |                     |
-| gsf01_l1_gamma2      | 0 1    | yes     | no         | 6.48M   | (1.0, 0.0, 0.25)   | (0 1, L1)        |             | errore sul reshape  |
-|                      |        |         |            |         |                    |                  |             |                     |
-| gsf_all              | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | **0.851**   |                     |
-| gsf_all_NOreshape    | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | 0.836       |                     |
-| vfn                  | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | 0.852       |                     |
-| vfn_NOreshape        | 0 1 2  | yes     | yes        | 11.11M  | (1.0, 0.0, 0.0)    | -                | 0.855       |                     |
-| gsf_all_l1           | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 1.0, 1.0)    | (0 1, L1)        |             |                     |
-|                      |        |         |            |         |                    |                  |             |                     |
-| gsf_all_kfold        | 0 1 2  | yes     | yes        | 6.49M   | (1.0, 0.0, 0.0)    | -                | $$$         | 0.81,               |
-|                      |        |         |            |         |                    |                  |             |                     |
-|                      |        |         |            |         |                    |                  |             |                     |
-| basicDynUNet         | -      | -       | -          | 16.54M  | (1.0, -, -)        |                  | 0.843       |                     |
-| resDynUNet           | -      | -       | -          |         | (1.0, -, -)        |                  | 0.849       |                     |
-| 2D resDynUNet NB     | -      | -       | -          | 7.9M    | (1.0, -, -)        | -                | 0.517       |                     |
+## Usage
 
-NB: Ho lasciaro che le features si auto-configurassero con MONAI
+Run all commands from the repository root.
 
+Training:
+```
+python -m gsm.main something-v1 RGB --arch BNInception \
+    --num_segments 8 --consensus_type avg --batch-size 16 --iter_size 2 \
+    --dropout 0.5 --lr 0.01 --warmup 10 --epochs 60 --eval-freq 5 \
+    --gd 20 --run_iter 1 -j 16 --npb --gsm
+```
+(`bash scripts/train_rgb.sh` runs the InceptionV3 / 16 segment configuration.)
+
+Testing:
+```
+bash scripts/test_rgb.sh        # or any script in scripts/eval/
+```
+Checkpoints are expected in `models/` (see `scripts/download_models.py`).
+
+## Data
+
+- Something-Something-v1 and Diving48: see `docs/GSM_original_README.md` and
+  `scripts/data_scripts/process_dataset_*.py`, `extract_frames_diving48.py`.
+- Kanji: `data/kkanji-*.npz`, processed with `scripts/data_scripts/extract_frames_kanji.py`
+  and `extract_frames_MovingKanji.py`. Several of these scripts contain absolute
+  paths from the original cluster (`/m100_work/...`) that must be adapted.
+
+## Credits
+
+- GSM: Swathikiran Sudhakaran, Sergio Escalera, Oswald Lanz, "Gate-Shift Networks
+  for Video Action Recognition", CVPR 2020. `gsm/model_zoo` derives from
+  tensorflow-model-zoo.torch.
+- `third_party/tensorflow_models`: copy of TensorFlow Models (Apache-2.0, see its LICENSE).
+
+## License
+
+BSD 2-Clause (see `LICENSE`).

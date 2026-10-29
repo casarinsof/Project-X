@@ -1,0 +1,1 @@
+python scripts/average_scores.py
