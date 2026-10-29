@@ -5,11 +5,11 @@ import numpy as np
 import torch.nn.parallel
 import torch.optim
 from sklearn.metrics import confusion_matrix
-from dataset import VideoDataset
-from models import VideoModel
-from transforms import *
-from ops import ConsensusModule
-import datasets_video
+from gsm.dataset import VideoDataset
+from gsm.models import VideoModel
+from gsm.transforms import *
+from gsm.ops import ConsensusModule
+from gsm import datasets_video
 import pdb
 from torch.nn import functional as F
 import sys

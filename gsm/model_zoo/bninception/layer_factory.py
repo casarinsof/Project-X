@@ -1,5 +1,5 @@
 from torch import nn
-from gsm import gsmModule
+from gsm.gsm import gsmModule
 
 LAYER_BUILDER_DICT=dict()
 

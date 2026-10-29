@@ -9,12 +9,12 @@ import torch.backends.cudnn as cudnn
 import torch.optim
 from torch.nn.utils import clip_grad_norm_
 from tensorboardX import SummaryWriter
-from models import VideoModel
-from transforms import *
-from opts import parser
-import CosineAnnealingLR
-import datasets_video
-from dataset import VideoDataset
+from gsm.models import VideoModel
+from gsm.transforms import *
+from gsm.opts import parser
+from gsm import CosineAnnealingLR
+from gsm import datasets_video
+from gsm.dataset import VideoDataset
 import os
 import sys
 

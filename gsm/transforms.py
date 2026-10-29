@@ -418,7 +418,7 @@ if __name__ == "__main__":
         )]
     )
 
-    im = Image.open('../tensorflow-model-zoo.torch/lena_299.png')
+    im = Image.open('gsm/model_zoo/lena_299.png')
 
     color_group = [im] * 3
     rst = trans(color_group)

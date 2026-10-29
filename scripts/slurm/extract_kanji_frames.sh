@@ -19,9 +19,9 @@ module load profile/deeplrn
 source /cineca/prod/opt/tools/anaconda/2020.11/none/etc/profile.d/conda.sh
 
 conda activate ai
-cd /m100/home/userexternal/cugwu000/Python\ Scripts/GSM/data_scripts
+cd /m100/home/userexternal/cugwu000/Python\ Scripts/Project-X
 
-python extract_frames_kanji.py
+python scripts/data_scripts/extract_frames_kanji.py
 
 wait
 conda deactivate

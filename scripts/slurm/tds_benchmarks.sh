@@ -18,9 +18,9 @@ module load profile/deeplrn
 source /cineca/prod/opt/tools/anaconda/2020.11/none/etc/profile.d/conda.sh
 
 conda activate ai
-cd /m100/home/userexternal/cugwu000/Python\ Scripts/GSM
+cd /m100/home/userexternal/cugwu000/Python\ Scripts/Project-X
 
-python tds_benchmarks.py
+python scripts/tds_benchmarks.py
 
 wait
 conda deactivate

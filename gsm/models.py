@@ -1,6 +1,6 @@
 from torch import nn
-from ops.basic_ops import ConsensusModule
-from transforms import *
+from gsm.ops.basic_ops import ConsensusModule
+from gsm.transforms import *
 from torch.nn.init import normal_, constant_
 
 class VideoModel(nn.Module):
@@ -78,7 +78,7 @@ class VideoModel(nn.Module):
         return feature_dim
 
     def _prepare_base_model(self, base_model):
-        import model_zoo
+        from gsm import model_zoo
         if base_model == 'BNInception':
             if self.gsm:
                 print('BNInception with GSM')
@@ -94,7 +94,7 @@ class VideoModel(nn.Module):
             elif self.modality == 'RGBDiff':
                 self.input_mean = self.input_mean * (1 + self.new_length)
         elif base_model == 'InceptionV3':
-            import model_zoo
+            from gsm import model_zoo
             if self.gsm:
                 print('InceptionV3 with GSM')
                 self.base_model = getattr(model_zoo, 'InceptionV3_gsm')(num_segments=self.num_segments)

@@ -2,11 +2,14 @@ import torch
 from torch import nn
 from .layer_factory import get_basic_layer, parse_expr, build_gsm
 import torch.utils.model_zoo as model_zoo
+import os
 import yaml
+
+_HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 class BNInception(nn.Module):
-    def __init__(self, model_path='model_zoo/bninception/bn_inception.yaml', num_classes=101,
+    def __init__(self, model_path=os.path.join(_HERE, 'bn_inception.yaml'), num_classes=101,
                        weight_url='https://yjxiong.blob.core.windows.net/models/bn_inception-9f5701afb96c8044.pth'):
         super(BNInception, self).__init__()
 
@@ -66,7 +69,7 @@ class BNInception(nn.Module):
         return data_dict[self._op_list[-1][2]]
 
 class BNInception_gsm(nn.Module):
-    def __init__(self, model_path='model_zoo/bninception/bn_inception_gsm.yaml', num_classes=101,
+    def __init__(self, model_path=os.path.join(_HERE, 'bn_inception_gsm.yaml'), num_classes=101,
                        weight_url='https://yjxiong.blob.core.windows.net/models/bn_inception-9f5701afb96c8044.pth',
                        num_segments=16):
         super(BNInception_gsm, self).__init__()
@@ -137,12 +140,12 @@ class BNInception_gsm(nn.Module):
 
 
 class InceptionV3(BNInception):
-    def __init__(self, model_path='model_zoo/bninception/inceptionv3.yaml', num_classes=101,
+    def __init__(self, model_path=os.path.join(_HERE, 'inceptionv3.yaml'), num_classes=101,
                  weight_url='https://yjxiong.blob.core.windows.net/models/inceptionv3-cuhk-0e09b300b493bc74c.pth'):
         super(InceptionV3, self).__init__(model_path=model_path, weight_url=weight_url, num_classes=num_classes)
 
 class InceptionV3_gsm(BNInception_gsm):
-    def __init__(self, model_path='model_zoo/bninception/inceptionv3_gsm.yaml', num_classes=101,
+    def __init__(self, model_path=os.path.join(_HERE, 'inceptionv3_gsm.yaml'), num_classes=101,
                  weight_url='https://yjxiong.blob.core.windows.net/models/inceptionv3-cuhk-0e09b300b493bc74c.pth',
                  num_segments=16):
         super(InceptionV3_gsm, self).__init__(model_path=model_path, weight_url=weight_url,
